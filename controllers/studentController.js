@@ -24,11 +24,11 @@ const grade = async (studentId) =>
 
     // Group information for the student with the given ObjectId alongside an overall grade calculated using the $avg operator
     {
-      
       $group: {
         _id: ObjectId(studentId),
-        overallScore: {$avg: '$score'},
-      }
+        overall_avg_Assignments_SCORE: {$avg: '$assignments.score'},
+        // overall_SCORE: {$avg: '$score'},
+      },
     },
   ]);
 
